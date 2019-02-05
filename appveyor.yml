@@ -30,14 +30,35 @@ test_script:
 #    - cargo bench --target=%target% --verbose      # Runs benchmarks in "src/lib.rs"
 
 artifacts:                          
-    - path: target\$(target)\release\*numext*.*     # Publishes all files from `cargo build/test/bench --release`
-      name: $(APPVEYOR_PROJECT_NAME)-$(platform)                      # Gives it a fancy name
+    - path: target\$(target)\release\*.*           # Publishes all files from `cargo build/test/bench --release`
       
 deploy:
+  # Deploy constructor
   - provider: GitHub
-    artifact: $(APPVEYOR_PROJECT_NAME)-$(platform)
+    artifact: *constructor*.*
     auth_token:
       secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
     prerelease: true
     on:
       appveyor_repo_tag: true
+      appveyor_repo_tag_name: *constructor*
+
+  # Deploy fixed-uint
+  - provider: GitHub
+    artifact: *fixed-uint*.*
+    auth_token:
+      secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
+    prerelease: true
+    on:
+      appveyor_repo_tag: true
+      appveyor_repo_tag_name: *fixed-uint*
+
+  # Deploy fixed-hash	
+  - provider: GitHub
+    artifact: *fixed-hash*.*
+    auth_token:
+      secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
+    prerelease: true
+    on:
+      appveyor_repo_tag: true
+      appveyor_repo_tag_name: *fixed-hash*
