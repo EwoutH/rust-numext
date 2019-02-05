@@ -35,7 +35,7 @@ artifacts:
 deploy:
   # Deploy constructor
   - provider: GitHub
-    artifact: *constructor*.*
+    artifact: target\$(target)\release\*constructor*.*
     auth_token:
       secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
     prerelease: true
@@ -45,7 +45,7 @@ deploy:
 
   # Deploy fixed-uint
   - provider: GitHub
-    artifact: *fixed-uint*.*
+    artifact: target\$(target)\release\*fixed-uint*.*
     auth_token:
       secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
     prerelease: true
@@ -55,7 +55,7 @@ deploy:
 
   # Deploy fixed-hash	
   - provider: GitHub
-    artifact: *fixed-hash*.*
+    artifact: target\$(target)\release\*fixed-hash*.*
     auth_token:
       secure: 'hY5Mk6KOwgQ97TzEBsM7Woqr1ZIm5QTvHg8EvxMV1x8j3wk/3mNBMqWFFbEIBK0i'
     prerelease: true
