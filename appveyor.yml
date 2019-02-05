@@ -41,7 +41,7 @@ deploy:
     prerelease: true
     on:
       appveyor_repo_tag: true
-      appveyor_repo_tag_name: *constructor*
+      appveyor_repo_tag_name: "*constructor*"
 
   # Deploy fixed-uint
   - provider: GitHub
@@ -51,7 +51,7 @@ deploy:
     prerelease: true
     on:
       appveyor_repo_tag: true
-      appveyor_repo_tag_name: *fixed-uint*
+      appveyor_repo_tag_name: "*fixed-uint*"
 
   # Deploy fixed-hash	
   - provider: GitHub
@@ -61,4 +61,4 @@ deploy:
     prerelease: true
     on:
       appveyor_repo_tag: true
-      appveyor_repo_tag_name: *fixed-hash*
+      appveyor_repo_tag_name: "*fixed-hash*"
